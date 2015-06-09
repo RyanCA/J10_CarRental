@@ -33,3 +33,4 @@ cd .\J01_Spring
 git add .
 git status
 git commit -m "Initialization commit batch"
+git push origin master
