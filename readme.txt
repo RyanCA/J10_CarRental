@@ -29,4 +29,7 @@ mvn clean
 1.8 #add it to git hub
 cd C:\_SoftwareDev\eclipse_projects
 git init J01_Spring
-
+cd .\J01_Spring
+git add .
+git status
+git commit -m "Initialization commit batch"
