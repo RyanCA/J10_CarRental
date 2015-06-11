@@ -33,4 +33,10 @@ cd .\J01_Spring
 git add .
 git status
 git commit -m "Initialization commit batch"
+
+#If there is no repository on Github for your source, then you need do the following step
+#1.8.1 create a repo on github through github web UI
+#1.8.2 copy the url of new repo and use command below to associate local source to it
+#git remote add origin https://github.com/RyanCA/J10_CarRental.git
+
 git push origin master
