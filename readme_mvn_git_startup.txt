@@ -57,4 +57,9 @@ git pull https://github.com/RyanCA/J10_CarRental.git
 For this one, the project name is called J01_Spring, later on I changed it to J10_CarRental to keep it consistent with repo name
 
 3. ###How to use git tag###
+git tag -a v0.1 -m 'Simple Spring MVC with Maven and Eclipse'
+git tag
+#git show
+#push tag in git server
+git push origin v0.1
 
