@@ -1,4 +1,4 @@
-1. How to create a mvn WEB project and push to github
+1. ###How to create a mvn WEB project and push to github###
 
 1.1 #Move to the right path
 cd C:\_SoftwareDev\eclipse_projects
@@ -45,6 +45,16 @@ origin  https://github.com/RyanCA/J10_CarRental.git (push)
 
 git push origin master
 
+2. ###How to pull source from github###
+#You may need the below one if it is not assoicated with remote
+#mkdir J10_CarRental
+#git init J10_CarRental
+#git remote add origin https://github.com/RyanCA/J10_CarRental.git
+git pull https://github.com/RyanCA/J10_CarRental.git
+
 ###Note###
 1. Once the repo created on Github, the name can't changed but the project name on eclipse can be changed.
 For this one, the project name is called J01_Spring, later on I changed it to J10_CarRental to keep it consistent with repo name
+
+3. ###How to use git tag###
+
