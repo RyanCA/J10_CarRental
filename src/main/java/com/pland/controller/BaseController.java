@@ -12,6 +12,7 @@ public class BaseController {
  
 	private static int counter = 0;
 	private static final String VIEW_INDEX = "index";
+	private static final String VIEW_BOOTSTRAP = "bootStrap";
 	private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);
  
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -34,6 +35,17 @@ public class BaseController {
 		logger.debug("[welcomeName] counter : {}", counter);
 		logger.debug("[welcomeName] name : {}", name);
 		return VIEW_INDEX;
+ 
+	}
+	
+	@RequestMapping(value = "/bootstrap", method = RequestMethod.GET)
+	public String welcomeBootstrap(ModelMap model) {
+ 
+		model.addAttribute("message", "Bootstrap");
+		model.addAttribute("counter", ++counter);
+		logger.debug("[welcomeBootstrap] counter : {}", counter);
+
+		return VIEW_BOOTSTRAP;
  
 	}
  
