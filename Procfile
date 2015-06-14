@@ -1,1 +1,1 @@
-web: mvn clean install tomcat:run
+web: java $JAVA_OPTS  --port $PORT target/*.war
