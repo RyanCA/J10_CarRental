@@ -1,1 +1,1 @@
-web: sh target/J10_CarRental.war
+#web: sh target/J10_CarRental.war
