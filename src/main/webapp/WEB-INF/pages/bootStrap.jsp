@@ -4,7 +4,8 @@
 <html>
 
 	<head>
-		<!-- Latest compiled and minified CSS -->
+	
+	    <!-- Latest compiled and minified CSS -->
 		<!--  
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		-->
@@ -30,6 +31,7 @@
 		<!--  
         <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         -->
+		
         
         <link href="<c:url value="/resources/bootstrap3.3.4/css/bootstrap.min.css" />" rel="stylesheet">
         <link href="<c:url value="/resources/bootstrap3.3.4/css/bootstrap-theme.min.css" />" rel="stylesheet">

@@ -69,6 +69,18 @@ http://www.mkyong.com/spring-mvc/spring-mvc-how-to-include-js-or-css-files-in-a-
         <script src="<c:url value="/resources/bootstrap3.3.4/js/bootstrap.min.js" />"></script>
         <!-- For datetimepicker1 only-->
         <script src="<c:url value="/resources/jquery-ui-1.11.4.custom/jquery-ui.js" />"></script>
+        
+###4. app doesn't run in Heroku
+heroku ps:scale web=1 #run this command, there is no any result
+Solution: 1. Add Procfile in the root folder of the project
+          2. git add Procfile
+          3. git commit -m "add Procfile to start web application"
+          4. git push heroku master
+          5. heroku ps
+          6. heroku ps:scale web=1
+          Scaling dynos... done, now running web at 1:1X.
+          7. heroku logs
+
     
 
 ############Technologies want to adopt in this project############
