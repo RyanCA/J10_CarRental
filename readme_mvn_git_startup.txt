@@ -62,6 +62,9 @@ git tag
 #push tag in git server
 git push origin v0.1
 
+4. ###git clone command###
+git clone https://git.heroku.com/carrental2015.git
+
 4. ###Heroku related###
 4.1 heroku local install
 https://devcenter.heroku.com/articles/getting-started-with-java#set-up
