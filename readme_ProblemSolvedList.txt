@@ -37,6 +37,39 @@ Eg: One jar dependant on commons-logging-1.0.4.jar;
     This will coerce artifacts coming as transitive dependencies to be of the specified version.
     http://stackoverflow.com/questions/5278292/dependency-conflicts-on-maven
     
+###3. Where to put javascript, css and image files in maven spring mvc project?
+
+http://www.mkyong.com/spring-mvc/spring-mvc-how-to-include-js-or-css-files-in-a-jsp-page/
+
+1. create resources folder under webapp
+
+2. set mapping in mvc-dispatcher-servlet.xml file
+2.1. add contribute in beans tag as below
+     xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+2.2. add below into xsi:schemaLocation
+     http://www.springframework.org/schema/mvc
+
+2.3 add two lines within beans tag as below
+	<mvc:annotation-driven /> 
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+
+3. in jsp file, add below codes
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
+
+        <link href="<c:url value="/resources/bootstrap3.3.4/css/bootstrap.min.css" />" rel="stylesheet">
+        <link href="<c:url value="/resources/bootstrap3.3.4/css/bootstrap-theme.min.css" />" rel="stylesheet">
+        <!-- For datetimepicker1 only-->
+        <link href="<c:url value="/resources/jquery-ui-1.11.4.custom/jquery-ui.css" />" rel="stylesheet">
+        
+        
+        <script src="<c:url value="/resources/jQuery.1.11.3/js/jquery-1.11.3.min.js" />"></script>
+        <script src="<c:url value="/resources/bootstrap3.3.4/js/bootstrap.min.js" />"></script>
+        <!-- For datetimepicker1 only-->
+        <script src="<c:url value="/resources/jquery-ui-1.11.4.custom/jquery-ui.js" />"></script>
+    
 
 ############Technologies want to adopt in this project############
 1. Tiles
@@ -47,6 +80,11 @@ Eg: One jar dependant on commons-logging-1.0.4.jar;
 	http://www.w3schools.com/bootstrap/bootstrap_navbar.asp
 	###Grid System
 	http://www.w3schools.com/bootstrap/bootstrap_grid_system.asp
+	###Panel
+	http://www.w3schools.com/bootstrap/bootstrap_panels.asp
+	
+	container vs container-fluid
+	
 
     ###Option 1: Add below code into each page then bootstrap in your web###
 	<head>
@@ -55,6 +93,7 @@ Eg: One jar dependant on commons-logging-1.0.4.jar;
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<title>Bootstrap Template</title>
 	</head>
