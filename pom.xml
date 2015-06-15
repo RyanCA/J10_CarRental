@@ -113,7 +113,16 @@
 			</configuration>
 		  </plugin>
 		  
-		  <!-- This section will be used after deployed to heroku, which will be used to start war in heroku environment -->
+		  <!-- This section will be used after deployed to heroku to start web app. Please refer to Procfile as well -->
+		  <!-- Before add this plugin, mvn pakcage command will generate folder structure as below:
+		       classes
+		       generated-sources
+		       J10_CarRental
+		       maven-archiver
+		       J10_CarRental.war
+		       
+		       After add this plugin, mvn package will generate one more folder dependency, which contains webapp-runner.jar
+		   -->
 		   <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
