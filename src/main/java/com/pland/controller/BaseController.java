@@ -13,6 +13,9 @@ public class BaseController {
 	private static int counter = 0;
 	private static final String VIEW_INDEX = "index";
 	private static final String VIEW_BOOTSTRAP = "bootStrap";
+	private static final String VIEW_BOOTSTRAP1 = "bootStrap1";
+	private static final String VIEW_GATE = "gate";
+	private static final String VIEW_GATE2 = "gateOk2";
 	private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);
  
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -46,6 +49,40 @@ public class BaseController {
 		logger.debug("[welcomeBootstrap] counter : {}", counter);
 
 		return VIEW_BOOTSTRAP;
+ 
+	}
+	
+	@RequestMapping(value = "/bootstrap1", method = RequestMethod.GET)
+	public String welcomeBootstrap1(ModelMap model) {
+ 
+		model.addAttribute("message", "Bootstrap1");
+		model.addAttribute("counter", ++counter);
+		logger.debug("[welcomeBootstrap1] counter : {}", counter);
+
+		return VIEW_BOOTSTRAP1;
+ 
+	}
+	
+	
+	@RequestMapping(value = "/gate", method = RequestMethod.GET)
+	public String welcomeTile(ModelMap model) {
+ 
+		model.addAttribute("message", "gate");
+		model.addAttribute("counter", ++counter);
+		logger.debug("[welcomeTile] counter : {}", counter);
+
+		return VIEW_GATE;
+ 
+	}
+	
+	@RequestMapping(value = "/gate2", method = RequestMethod.GET)
+	public String welcomeTile2(ModelMap model) {
+ 
+		model.addAttribute("message", "gate");
+		model.addAttribute("counter", ++counter);
+		logger.debug("[welcomeTile2] counter : {}", counter);
+
+		return VIEW_GATE2;
  
 	}
  

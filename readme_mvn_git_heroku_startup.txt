@@ -81,6 +81,11 @@ git push origin v0.1 #push tag into git server
 4. ###git clone command###
 git clone https://git.heroku.com/carrental2015.git
 
+5. ###git reverse the rm action###
+git rm readme_mvn_startup.txt #This will delete a file, if you don't want to delete it, you can do the following to get it back
+git reset HEAD readme_mvn_startup.txt
+git checkout readme_mvn_startup.txt
+
 #######################################################################
 
 4. ####################Heroku related##################################

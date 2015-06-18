@@ -19,6 +19,7 @@
 		<junit.version>4.11</junit.version>
 		<logback.version>1.0.13</logback.version>
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
+		<tiles.version>3.0.1</tiles.version>
    </properties>
 	
   
@@ -73,6 +74,14 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
+		
+		<!-- Add apache tile in for jsp template -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		
   </dependencies>
   
   <build>
@@ -144,6 +153,8 @@
                 </execution>
             </executions>
         </plugin>
+        
+        
  
 		</plugins>
   </build>

@@ -5,6 +5,9 @@
 
 	<head>
 	
+	
+	    <!-- How to import bootstrap OPTION 1 -->
+	    
 	    <!-- Latest compiled and minified CSS -->
 		<!--  
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -16,7 +19,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 		-->
 		
-		<!-- For datetimepicker1 only-->
+		<!-- For using datetimepicker1 only-->
 		<!--  
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		-->
@@ -27,24 +30,29 @@
 		<!--  
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		-->
-		<!-- For datetimepicker1 only-->
+		<!-- For using datetimepicker1 only-->
 		<!--  
         <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         -->
 		
+        <!-- How to import bootstrap OPTION 2 -->
         
         <link href="<c:url value="/resources/bootstrap3.3.4/css/bootstrap.min.css" />" rel="stylesheet">
         <link href="<c:url value="/resources/bootstrap3.3.4/css/bootstrap-theme.min.css" />" rel="stylesheet">
-        <!-- For datetimepicker1 only-->
+        <!-- For using datetimepicker1 only-->
         <link href="<c:url value="/resources/jquery-ui-1.11.4.custom/jquery-ui.css" />" rel="stylesheet">
+        <!-- Self made css file -->
+        <!-- 
+        <link href="<c:url value="/resources/plandstrap0.0.1/css/plandstrap.css" />" rel="stylesheet">
+         -->
         
         
         <script src="<c:url value="/resources/jQuery.1.11.3/js/jquery-1.11.3.min.js" />"></script>
         <script src="<c:url value="/resources/bootstrap3.3.4/js/bootstrap.min.js" />"></script>
-        <!-- For datetimepicker1 only-->
+        <!-- For using datetimepicker1 only-->
         <script src="<c:url value="/resources/jquery-ui-1.11.4.custom/jquery-ui.js" />"></script>
         
-		<title>Bootstrap Template</title>
+		<title>Car Rental</title>
 	</head>
 
 	<body>
@@ -125,7 +133,9 @@
 		  <div class="panel-group">
 		   <form class="form-inline" role="form">
 			    <div class="panel panel-default">
-				      <div class="panel-heading">Rental Period</div>
+			          <!-- color sequence red color take first two digits, green color take next two digits, blue color take last two digits -->
+			          <!-- style="color:#fff;background-color:#505050;" -->
+				      <div class="panel-heading" >Rental Period</div>
 				      
 				      <div class="panel-body">
 						  <div id="datetimepicker1" class="input-append col-xs-12 col-sm-6 col-md-6">
@@ -168,7 +178,7 @@
 						  <table class="table table-hover">
 						    <thead>
 						      <tr class="">
-						        <th>Vehicle Class</th>
+						        <th>Class</th>
 						        <th>Description</th>
 						        <th>Price</th>
 						      </tr>
@@ -176,65 +186,112 @@
 						    <tbody>
 						    <!-- class of tr or td can be active, success, info, warning and danger, which makes tr or td showing different colors -->
 						      <tr class="info">
+						        <!-- img-responsive is able to be autosized basd on widow size change -->
 						        <td><img class="img-responsive" src=<c:url value="/resources/images/01Economy.png"/> alt="Economy"></td>
-						        <td>Kia Rio or similar</td>
-						        <td>$ 33.99 CAD / day</td>
+						        <td>Economy<br>
+						            Kia Rio or similar
+						        </td>
+						        <td>$33.99/day <br>
+						           <a href=<c:url value="/bootstrap1" /> class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="active">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/02Compact.png"/> alt="Economy"></td>
-						        <td>Nissan Versa Note or similar</td>
-						        <td>$ 34.99 CAD / day</td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/02Compact.png"/> alt="Compact"></td>
+						        <td>Compact<br>
+						            Nissan Versa Note or similar
+						        </td>
+						         <td>$34.99/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="info">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/03Intermediate.png"/> alt="Economy"></td>
-						        <td>Toyota Corolla or similar</td>
-						        <td>$ 35.99 CAD / day </td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/03Intermediate.png"/> alt="Intermediate"></td>
+						        <td>Intermediate<br>
+						            Toyota Corolla or similar
+						        </td>
+						        <td>$35.99/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="active">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/04Standard.png"/> alt="Economy"></td>
-						        <td>Volkswagan Jetta or similar</td>
-						        <td>$ 37.99 CAD / day</td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/04Standard.png"/> alt="Standard"></td>
+						        <td>Standard<br>
+						            Volkswagan Jetta or similar
+						        </td>
+						        <td>$37.99/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="info">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/05Fullsize.png"/> alt="Economy"></td>
-						        <td>Ford Fusion or similar</td>
-						        <td>$ 39.99 CAD / day </td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/05Fullsize.png"/> alt="Fullsize"></td>
+						        <td>Full Size<br>
+						            Ford Fusion or similar
+						        </td>
+						        <td>$39.99/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="active">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/06Premium.png"/> alt="Economy"></td>
-						        <td>Chrysler 300 or similar</td>
-						        <td>$ 49.99 CAD / day</td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/06Premium.png"/> alt="Premium"></td>
+						        <td>Premium<br>
+						            Chrysler 300 or similar
+						        </td>
+						        <td>$49.99/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="info">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/07Luxury.png"/> alt="Economy"></td>
-						        <td>Cadillac ATS or similar</td>
-						        <td>$ 80.00 CAD / day </td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/07Luxury.png"/> alt="Luxury"></td>
+						        <td>Luxury<br>
+						            Cadillac ATS or similar
+						        </td>
+						        <td>$80.00/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="active">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/08MiniVan.png"/> alt="Economy"></td>
-						        <td>Dodge Grand Caravan or similar</td>
-						        <td>$ 100.00 CAD / day</td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/08MiniVan.png"/> alt="MiniVan"></td>
+						        <td>Mini Van<br>
+						            Dodge Grand Caravan or similar
+						        </td>
+						        <td>$100.00/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="info">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/09IntermediateSUV.png"/> alt="Economy"></td>
-						        <td>Toyota Rav4 or similar</td>
-						        <td>$ 68.97 CAD / day </td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/09IntermediateSUV.png"/> alt="IntermediateSUV"></td>
+						        <td>Intermediate SUV<br>
+						            Toyota Rav4 or similar
+						        </td>
+						        <td>$68.97/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="active">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/10StandardSUV.png"/> alt="Economy"></td>
-						        <td>Hyundai Santa Fe or similar</td>
-						        <td>$ 78.97 CAD / day </td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/10StandardSUV.png"/> alt="StandardSUV"></td>
+						        <td>Standard SUV<br>
+						            Hyundai Santa Fe or similar
+						        </td>
+						        <td>$78.97/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						      <tr class="info">
-						        <td><img class="img-responsive" src=<c:url value="/resources/images/11FullSizeSUV.png"/> alt="Economy"></td>
-						        <td>Chevy Tahoe or similar</td>
-						        <td>$ 110.00 CAD / day </td>
+						        <td><img class="img-responsive" src=<c:url value="/resources/images/11FullSizeSUV.png"/> alt="FullSizeSUV"></td>
+						        <td>Full Size SUV<br>
+						            Chevy Tahoe or similar
+						        </td>
+						        <td>$110.00/day <br>
+						           <a href="#" class="btn btn-info" role="button">Select</a>
+						        </td>
 						      </tr>
 						    </tbody>
 						  </table>
+						  <input type="submit" class="btn btn-info" value="Submit Button">
 
 	                </div><!-- end of panel body -->
 			    </div><!-- end of panel -->
+			    
 		   </form>
 		  
 

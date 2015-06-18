@@ -11,22 +11,38 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
  
 	<context:component-scan base-package="com.pland.controller" />
- 
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+
+	<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/pages/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
+		<property name="order" value="2" />
 	</bean>
+
+
 	
 	<!-- starting with version 3.0.4, you can use below mapping to request .js, .css -->
 	<!--	/resources/bootstrap3.3.4/, /resources/jQuery.1.11.3/, /resources/jquery-ui-1.11.4.custom/ -->
 	<!-- cache-period="31556926" -->
 	<mvc:annotation-driven /> 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-
- 
+	
+	<!-- Add below code for using Apache titles -->
+	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+        <property name="order" value="1" />
+    </bean>
+    
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	    <property name="definitions">
+		     <list>
+		         <value>/WEB-INF/tiles.xml</value>
+		     </list>
+	    </property>
+    </bean>
+    
 </beans>

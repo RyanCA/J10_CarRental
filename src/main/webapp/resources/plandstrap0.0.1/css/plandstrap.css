@@ -1,0 +1,9 @@
+/*!
+ * Plandstrap v0.0.1 (http://getbootstrap.com)
+ * Copyright 2015-2015 Pland, Inc.
+ */
+ 
+.p-panel-heading{
+	color:#fff;;
+    linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+  }

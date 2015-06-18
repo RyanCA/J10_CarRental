@@ -3,6 +3,7 @@
 P01: The EL doesn't show with correct value in the index.jsp
      Message : ${message}
      Counter : ${counter}
+     
 A01:
 Step 1: in web.xml
 tag of <web-app> changed to 
@@ -23,6 +24,7 @@ so in this case, you may have to use <%@ page isELIgnored="false" %> in each jsp
 #######################################################################
 
 P02: Where to put javascript, css and image files in maven spring mvc project?
+
 A02:
 http://www.mkyong.com/spring-mvc/spring-mvc-how-to-include-js-or-css-files-in-a-jsp-page/
 
@@ -57,6 +59,7 @@ http://www.mkyong.com/spring-mvc/spring-mvc-how-to-include-js-or-css-files-in-a-
 #######################################################################
 
 P03: How to make mvn web project runnable in heroku platform?
+
 A03: Step 1: In pom.xml file add below codes
 <!-- This section will be used after deployed to heroku to start web app. Please refer to Procfile as well -->
 		  <!-- Before add this plugin, mvn pakcage command will generate folder structure as below:
@@ -108,12 +111,79 @@ A03: Step 1: In pom.xml file add below codes
           9. heroku open #automatically open a brower to access your website
 #######################################################################
 
-############Knowledge############
-###1. Where to define the Servlet Version, and Jsp version in your web application?###
-   Pending...
+P04. Update the photo files of 10Standard_SUV.png and 11FullSize_SUV.png, but latest photo didn't appear in chrome browser.
+A04. This problem can be originated from the mechanism of chrome cache or tomcat server cache.
+     1. I close the chrome browser, and open again to access the link http://localhost:8080/J10_CarRental/bootstrap still no update images.
+     2. But I open IE browser and access the same url, the latest change showed (Never use IE open this url before)
+        So it demonstrate problems are from browser cache rather than tomcat server cache
+
+#######################################################################        
+
+P05. Importing Apache Tiles
+A05. Steps as below:
+
+1. Add dependency in pom.xml
+		<!-- Add apache tile in for jsp template -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+2. Add below configuration in mvc-dispatcher-servlet.xml
+   Update internalResourceViewResolver with order value of 2
+   Remember internalResourceViewResolver and tilesViewResolver can work together
+   But the order must be tilesViewResolver go first than internalResourceViewResolver. 
+   Vice Versa doesn't work
+	<!-- Add below code for using Apache titles -->
+	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+        <property name="order" value="1" />
+    </bean>
+    
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	    <property name="definitions">
+		     <list>
+		         <value>/WEB-INF/tiles.xml</value>
+		     </list>
+	    </property>
+    </bean>
+
+3. Add titles.xml and tiles definition is inside
+
+4. Add template.jsp, header.jsp, footer.jsp
+
+4. Add methods in BaseController.java as well
+
+5. Tiles can be accessed by two ways. Check the detail out by access method welcomeTile() and welcomeTile2()
+
+#######################################################################
+
+###########################Knowledge to learn #########################
+Q01: Where to define the Servlet Version, and Jsp version in your web application?###
+A01: You can check the web.xml file take below as below:
+
+     <web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	                         http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	     version="2.5">
+	  web-app_2_5.xsd and version="2.5" specify that servlet is in 2.5 version. And you can download http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd to see details:
+	  
+	  There are some examples as below:
+	  Servlet 2.5 uses JSP 2.1 
+	  Servlet 2.4 uses JSP 2.0 
+	  Servlet 2.3 uses JSP 1.2 
+	  Servlet 2.2 uses JSP 1.1 
+	  Servlet 2.1 uses JSP 1.0
+	  
+	  For tomcat servlet and jsp support information, please refer to http://wiki.apache.org/tomcat/TomcatVersions
+	  For tomcat 8, it supports servlet 3.1 and jsp 2.3, EL 3.0 and Websocket 1.1
+	  
    
 ###2. How to resolve jar dependency issue in maven pom.xml###
    Pending...
+   dependency management tag???
    
 Eg: One jar dependant on commons-logging-1.0.4.jar; 
     The other jar dependant on commons-logging-1.1.1.jar.
@@ -134,20 +204,13 @@ Eg: One jar dependant on commons-logging-1.0.4.jar;
 	http://www.w3schools.com/bootstrap/bootstrap_grid_system.asp
 	###Panel
 	http://www.w3schools.com/bootstrap/bootstrap_panels.asp
+	###Table
+	http://www.w3schools.com/bootstrap/bootstrap_tables.asp
+	###Button
+	http://www.w3schools.com/bootstrap/bootstrap_buttons.asp
 	
 	container vs container-fluid
 	
 
-    ###Option 1: Add below code into each page then bootstrap in your web###
-	<head>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<title>Bootstrap Template</title>
-	</head>
 
 	     
