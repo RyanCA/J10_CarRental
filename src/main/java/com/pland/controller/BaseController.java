@@ -64,10 +64,10 @@ public class BaseController {
 	}
 	
 	
-	@RequestMapping(value = "/gate", method = RequestMethod.GET)
+	@RequestMapping(value = "/tile", method = RequestMethod.GET)
 	public String welcomeTile(ModelMap model) {
  
-		model.addAttribute("message", "gate");
+		model.addAttribute("message", "tile");
 		model.addAttribute("counter", ++counter);
 		logger.debug("[welcomeTile] counter : {}", counter);
 
@@ -75,10 +75,10 @@ public class BaseController {
  
 	}
 	
-	@RequestMapping(value = "/gate2", method = RequestMethod.GET)
+	@RequestMapping(value = "/tile2", method = RequestMethod.GET)
 	public String welcomeTile2(ModelMap model) {
  
-		model.addAttribute("message", "gate");
+		model.addAttribute("message", "tile2");
 		model.addAttribute("counter", ++counter);
 		logger.debug("[welcomeTile2] counter : {}", counter);
 
