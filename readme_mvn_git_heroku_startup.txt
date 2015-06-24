@@ -131,4 +131,39 @@ heroku logs #to see log if the server starts successfully
     As a handy shortcut, you can open the website as follows:
 heroku open
 
+4.6 Heroku DB related
+https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on
+
+4.6.1 
+heroku addons #to get all addons infomation including database)
+
+Plan                         Name                Price
+---------------------------  ------------------  -----
+heroku-postgresql:hobby-dev  glowing-newly-5714  free
+
+=== Attachments for carrental2015
+Name      Add-on              Billing App
+--------  ------------------  -------------
+DATABASE  glowing-newly-5714  carrental2015
+
+#If database is not there, please using below command to set it up.
+4.6.1.1
+heroku addons:create heroku-postgresql:hobby-dev
+
+4.6.2 
+heroku config #Check db url
+
+=== carrental2015 Config Vars
+DATABASE_URL: postgres://wmoemmlbtmyaob:Mzg3OijAltF2G6v0AWDqVrRUlt@ec2-54-83-17-
+8.compute-1.amazonaws.com:5432/deghr853ufffo3
+JAVA_OPTS:    -XX:+UseCompressedOops
+
+4.6.3 check DB detail information
+heroku pg:info
+
+4.6.4 import data from Postgre dump file
+https://devcenter.heroku.com/articles/heroku-postgres-import-export#import
+
+heroku pg:psql #To run this command, Postgre DB must installed in local as pre-requisite
+
 #######################################################################

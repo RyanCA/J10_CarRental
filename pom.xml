@@ -10,6 +10,7 @@
   <version>1.0-SNAPSHOT</version>
   <name>J10_CarRental Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
   
   <!-- Ryan added -->
   <properties>
@@ -20,11 +21,12 @@
 		<logback.version>1.0.13</logback.version>
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
 		<tiles.version>3.0.1</tiles.version>
+		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
    </properties>
 	
   
   <dependencies>
-   <!-- Unit Test -->
+        <!-- Unit Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -75,11 +77,25 @@
 			<version>${jstl.version}</version>
 		</dependency>
 		
-		<!-- Add apache tile in for jsp template -->
+		<!-- Add Apache tile for jsp template -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-extras</artifactId>
 			<version>${tiles.version}</version>
+		</dependency>
+		
+		<!-- Add Spring JDBC Access -->
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+		</dependency>
+
+      <!-- Add Postgresql dependency -->
+		<dependency>
+		    <groupId>postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>${postgresql.version}</version>
 		</dependency>
 		
   </dependencies>
@@ -153,8 +169,7 @@
                 </execution>
             </executions>
         </plugin>
-        
-        
+
  
 		</plugins>
   </build>

@@ -113,14 +113,18 @@ A03: Step 1: In pom.xml file add below codes
 
 P04. Update the photo files of 10Standard_SUV.png and 11FullSize_SUV.png, but latest photo didn't appear in chrome browser.
 A04. This problem can be originated from the mechanism of chrome cache or tomcat server cache.
-     1. I close the chrome browser, and open again to access the link http://localhost:8080/J10_CarRental/bootstrap still no update images.
+     1. I CLOSED the chrome browser, and open again to access the link http://localhost:8080/J10_CarRental/bootstrap still no update images.
      2. But I open IE browser and access the same url, the latest change showed (Never use IE open this url before)
         So it demonstrate problems are from browser cache rather than tomcat server cache
+
+Dig further to see if we can have some findings about Cache Mechanism of Tomcat Server???
 
 #######################################################################        
 
 P05. Importing Apache Tiles
 A05. Steps as below:
+
+Local access URL:http://localhost:8080/J10_CarRental/tile
 
 1. Add dependency in pom.xml
 		<!-- Add apache tile in for jsp template -->
@@ -159,7 +163,38 @@ A05. Steps as below:
 
 #######################################################################
 
-###########################Knowledge to learn #########################
+P06. Add Spring JDBC Postgre DB connection
+
+Local access URL:http://localhost:8080/J10_CarRental/jdbc
+
+1.1 Setup local Postgre DB
+    Set the username/password/port through UI during installation 
+    postgres/password/5432
+1.2 Run scripts underpostgre_sql folder to create tables and data
+
+2. add dependency in pom.xml file
+
+3. create new jdbc.jsp page
+
+4. add welcomeJdbc() method in BaseController.java
+
+5. add new definition of "jdbc" in tiles.xml
+
+6. add contextConfiguration in web.xml
+
+7. add new file of spring-beans-context.xml and spring-datasource-context.xml
+
+8. add com.pland.dao and com.pland.modal java packages
+
+#######################################################################
+
+P07. 
+
+
+
+#######################################################################
+
+###########################KNOWLEDGE TO LEARN#########################
 Q01: Where to define the Servlet Version, and Jsp version in your web application?###
 A01: You can check the web.xml file take below as below:
 
@@ -179,8 +214,24 @@ A01: You can check the web.xml file take below as below:
 	  
 	  For tomcat servlet and jsp support information, please refer to http://wiki.apache.org/tomcat/TomcatVersions
 	  For tomcat 8, it supports servlet 3.1 and jsp 2.3, EL 3.0 and Websocket 1.1
-	  
+#######################################################################	  
    
+###2. Where do you know your html version?
+Check the top of your html code.
+Take below code as an example, the html version is 4.0.1
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+Now, following is the way to define html as version 5
+<!doctype html>
+
+https://courses.edx.org/courses/course-v1:W3Cx+W3C-HTML5+2015T3/courseware/b246c15d3a1044ccb4564ea22fbc4821/804b2e29c27e47f880b2f9558da428f0/
+HTML5 contains powerful capabilities for Web-based applications with more 
+interaction, video support, graphics, more styling effects, and a full set of 
+APIs. HTML5 adapts to any device, be it a desktop, mobile, tablet, or 
+television device.
+
+####################################################################### 
+
 ###2. How to resolve jar dependency issue in maven pom.xml###
    Pending...
    dependency management tag???
@@ -191,12 +242,32 @@ Eg: One jar dependant on commons-logging-1.0.4.jar;
     You need to configure a dependencyManagement section in your [parent] POM. 
     This will coerce artifacts coming as transitive dependencies to be of the specified version.
     http://stackoverflow.com/questions/5278292/dependency-conflicts-on-maven
+#######################################################################
+    
+###3. Spring Dependency Injection
+Reference: http://www.tutorialspoint.com/spring/spring_dependency_injection.htm
+You can mix both, Constructor-based and Setter-based DI but it is a good rule of thumb 
+to use constructor arguments for mandatory dependencies and setters for optional dependencies.
+#######################################################################
+
+###4. Spring Application Context vs Web Application Context
+http://syntx.io/difference-between-loading-context-via-dispatcherservlet-and-contextloaderlistener/
+ContextLoaderListener will load all application *context.xml to initialize the application context 
+DispatcherServlet will be used to initialize a servlet parameter
+
+###5. Spring @Autowire vs Explicit Bean Configuration in *.xml configuration file
+Why autowire must be there?
+#######################################################################
 
 
+###6. 
+#######################################################################
 ############Technologies want to adopt in this project############
-1. Tiles
+1. Apache Tiles
+   Done
 
 2. Twitter BootStrap
+    Done
 	http://getbootstrap.com/getting-started/#download
 	###Nav Bar
 	http://www.w3schools.com/bootstrap/bootstrap_navbar.asp
@@ -210,6 +281,28 @@ Eg: One jar dependant on commons-logging-1.0.4.jar;
 	http://www.w3schools.com/bootstrap/bootstrap_buttons.asp
 	
 	container vs container-fluid
+
+Transaction Management
+Spring selenium?
+JSON/JQuery
+
+3. Spring Form Validating
+
+4. Spring JPA
+
+5. Spring JDBC
+
+6. Spring Hibernate
+
+7. Spring Security
+
+7. Spring WebService
+
+7. Cache Data with Spring
+
+8. Spring JMS
+
+
 	
 
 

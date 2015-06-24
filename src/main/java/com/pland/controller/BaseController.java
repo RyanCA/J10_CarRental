@@ -1,11 +1,19 @@
 package com.pland.controller;
  
+import java.util.ArrayList;
+
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.pland.dao.jdbc.JdbcVehicleClassDao;
+import com.pland.modal.VehicleClass;
  
 @Controller
 public class BaseController {
@@ -14,10 +22,20 @@ public class BaseController {
 	private static final String VIEW_INDEX = "index";
 	private static final String VIEW_BOOTSTRAP = "bootStrap";
 	private static final String VIEW_BOOTSTRAP1 = "bootStrap1";
-	private static final String VIEW_GATE = "gate";
+	private static final String VIEW_GATE = "gate"; //Check the gate definition in tiles.xml
 	private static final String VIEW_GATE2 = "gateOk2";
+	private static final String VIEW_JDBC = "jdbc"; //Check the jdbc definition in tiles.xml
+	
+	
 	private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);
+	
+	@Autowired
+	private JdbcVehicleClassDao jdbcVehicleClassDao;
  
+	public void setJdbcVehicleClassDao(JdbcVehicleClassDao jdbcVehicleClassDao) {
+		this.jdbcVehicleClassDao = jdbcVehicleClassDao;
+	}
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
  
@@ -55,7 +73,7 @@ public class BaseController {
 	@RequestMapping(value = "/bootstrap1", method = RequestMethod.GET)
 	public String welcomeBootstrap1(ModelMap model) {
  
-		model.addAttribute("message", "Bootstrap1");
+		model.addAttribute("message", "bootstrap1");
 		model.addAttribute("counter", ++counter);
 		logger.debug("[welcomeBootstrap1] counter : {}", counter);
 
@@ -63,14 +81,18 @@ public class BaseController {
  
 	}
 	
-	
+	/**
+	 * This is the starting point to demonstrate how Apache Tile works
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/tile", method = RequestMethod.GET)
 	public String welcomeTile(ModelMap model) {
  
 		model.addAttribute("message", "tile");
 		model.addAttribute("counter", ++counter);
 		logger.debug("[welcomeTile] counter : {}", counter);
-
+		
 		return VIEW_GATE;
  
 	}
@@ -83,6 +105,39 @@ public class BaseController {
 		logger.debug("[welcomeTile2] counter : {}", counter);
 
 		return VIEW_GATE2;
+ 
+	}
+	
+	/**
+	 * This is the starting point to demonstrate how ModelMap can be displayed 
+	 * in front jsp; And backend using jdbc to fetch DB
+	 * Refer to jdbc.jsp as well to see how ModelMap(What about ModelAndView) 
+	 * get displayed
+	 * 
+	 * 
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/jdbc", method = RequestMethod.GET)
+	public String welcomeJdbc(ModelMap model) {
+ 
+		model.addAttribute("message", "jdbc");
+		model.addAttribute("counter", ++counter);
+		
+		logger.debug("[welcomeJdbc] counter : {}", counter);
+		
+		/**
+		 * The following code can be replaced by using @Autowired flag which 
+		 * will bring dependency injection
+		 */
+//		ApplicationContext context = 
+//	    		new ClassPathXmlApplicationContext("*-context.xml");
+//		JdbcVehicleClassDao jdbcVehicleClassDao = (JdbcVehicleClassDao) context.getBean("jdbcVehicleClassDao");
+		ArrayList<VehicleClass> list = jdbcVehicleClassDao.findAll();
+		model.addAttribute("vehicleClassList", list);
+		
+		return VIEW_JDBC;
  
 	}
  

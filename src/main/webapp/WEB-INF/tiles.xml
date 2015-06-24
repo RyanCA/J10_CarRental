@@ -17,5 +17,9 @@
     <definition name="gate" extends="defaultTemplate">
         <put-attribute name="body" value="/WEB-INF/pages/gateOk.jsp" />
     </definition>
+    
+    <definition name="jdbc" extends="defaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/jdbc.jsp" />
+    </definition>
 
 </tiles-definitions>

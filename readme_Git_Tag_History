@@ -1,3 +1,5 @@
+v0.6      Add Spring JDBC Postgre DB connection
+v0.5      Add Apache Tiles
 v0.4      Heroku runnable version
 v0.3      js, css reference mode changed from internet website to local resources
 v0.2      Import Bootstrap by setting reference link in bootStrap.jsp
